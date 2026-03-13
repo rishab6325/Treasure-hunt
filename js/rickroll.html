@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Transmission Received</title>
+
+<style>
+body{
+  background:black;
+  color:white;
+  text-align:center;
+  font-family:sans-serif;
+}
+
+#clue{
+  display:none;
+  margin-top:40px;
+  font-size:24px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Signal intercepted...</h1>
+
+<video id="video" width="720" autoplay controls>
+  <source src="rickroll.mp4" type="video/mp4">
+</video>
+
+<div id="clue">
+<h2>Next Clue</h2>
+<p>121.5 MHz</p>
+<p>Machines nearby understand this number.</p>
+</div>
+
+<script>
+var vid = document.getElementById("video");
+
+vid.onended = function() {
+  document.getElementById("clue").style.display = "block";
+};
+</script>
+
+</body>
+
+</html>
