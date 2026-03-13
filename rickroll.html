@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Transmission Received</title>
+
+<style>
+body{
+  background:black;
+  color:white;
+  text-align:center;
+  font-family:sans-serif;
+}
+
+#video{
+  pointer-events:none;   /* prevents clicking/pausing */
+}
+
+#clue{
+  display:none;
+  margin-top:40px;
+  font-size:24px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Decoding transmission...</h1>
+
+<video id="video" width="720" autoplay>
+  <source src="rickroll.mp4" type="video/mp4">
+</video>
+
+<div id="clue">
+<h2>Next Clue</h2>
+<p>121.5 MHz</p>
+<p>Machines nearby understand this number.</p>
+</div>
+
+<script>
+
+var vid = document.getElementById("video");
+
+vid.controls = false;
+vid.muted = true;   // required for autoplay
+
+// force video play
+vid.play().catch(function(){});
+
+// unmute after it starts
+setTimeout(function(){
+  vid.muted = false;
+},1000);
+
+// disable keyboard skipping
+document.addEventListener("keydown", function(e){
+  e.preventDefault();
+});
+
+// after 30 seconds show clue
+setTimeout(function(){
+  vid.pause();
+  document.getElementById("clue").style.display="block";
+},30000);
+
+</script>
+
+</body>
+</html>
